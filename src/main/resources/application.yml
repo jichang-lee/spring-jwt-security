@@ -17,6 +17,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
 jwt:
   secret: 86b396ea240545aee0aa35daa40f03b9b2d51651382d4a3cdd02b0d304a93949
