@@ -36,7 +36,7 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(
                         auth  -> auth.requestMatchers(
-                                //index 페이지
+                                "/api/index",
                                 "/api/auth/login",
                                 "/api/auth/signup",
                                 "/api/auth/refresh"
