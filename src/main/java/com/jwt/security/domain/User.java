@@ -1,18 +1,13 @@
 package com.jwt.security.domain;
 
+import com.jwt.security.dto.user.UserRole;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.management.relation.Role;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -36,7 +31,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private UserRole role;
 
     @Column(name = "create_at")
     private LocalDateTime createAt;
@@ -44,7 +39,4 @@ public class User {
     @Column(name = "update_at")
     private LocalDateTime updateAt;
 
-    public enum Role {
-        USER, ADMIN
-    }
 }
