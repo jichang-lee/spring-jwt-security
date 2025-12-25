@@ -8,5 +8,5 @@ public class UserToken {
 
     private Long id;
     private String email;
-    private User.Role role;
+    private UserRole role;
 }
