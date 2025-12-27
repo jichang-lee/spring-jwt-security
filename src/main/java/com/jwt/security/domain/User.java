@@ -2,18 +2,15 @@ package com.jwt.security.domain;
 
 import com.jwt.security.dto.user.UserRole;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 public class User {
 
     @Id
@@ -39,4 +36,12 @@ public class User {
     @Column(name = "update_at")
     private LocalDateTime updateAt;
 
+    @Builder
+    public User(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.role = UserRole.USER;
+        this.createAt = LocalDateTime.now();
+    }
 }
